@@ -1,0 +1,86 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    addressable (2.8.0)
+      public_suffix (>= 2.0.2, < 5.0)
+    concurrent-ruby (1.1.10)
+    domain_name (0.5.20190701)
+      unf (>= 0.0.5, < 1.0.0)
+    dry-configurable (0.14.0)
+      concurrent-ruby (~> 1.0)
+      dry-core (~> 0.6)
+    dry-container (0.9.0)
+      concurrent-ruby (~> 1.0)
+      dry-configurable (~> 0.13, >= 0.13.0)
+    dry-core (0.7.1)
+      concurrent-ruby (~> 1.0)
+    dry-inflector (0.2.1)
+    dry-logic (1.2.0)
+      concurrent-ruby (~> 1.0)
+      dry-core (~> 0.5, >= 0.5)
+    dry-struct (1.4.0)
+      dry-core (~> 0.5, >= 0.5)
+      dry-types (~> 1.5)
+      ice_nine (~> 0.11)
+    dry-types (1.5.1)
+      concurrent-ruby (~> 1.0)
+      dry-container (~> 0.3)
+      dry-core (~> 0.5, >= 0.5)
+      dry-inflector (~> 0.1, >= 0.1.2)
+      dry-logic (~> 1.0, >= 1.0.2)
+    erubi (1.10.0)
+    ffi (1.15.5)
+    ffi-compiler (1.0.1)
+      ffi (>= 1.0.0)
+      rake
+    hanami-api (0.2.0)
+      hanami-router (~> 2.0.alpha)
+    hanami-router (2.0.0.alpha6)
+      mustermann (~> 1.0)
+      mustermann-contrib (~> 1.0)
+      rack (~> 2.0)
+    hansi (0.2.0)
+    http (5.0.4)
+      addressable (~> 2.8)
+      http-cookie (~> 1.0)
+      http-form_data (~> 2.2)
+      llhttp-ffi (~> 0.4.0)
+    http-cookie (1.0.4)
+      domain_name (~> 0.5)
+    http-form_data (2.3.0)
+    ice_nine (0.11.2)
+    json (2.6.1)
+    llhttp-ffi (0.4.0)
+      ffi-compiler (~> 1.0)
+      rake (~> 13.0)
+    mustermann (1.1.1)
+      ruby2_keywords (~> 0.0.1)
+    mustermann-contrib (1.1.1)
+      hansi (~> 0.2.0)
+      mustermann (= 1.1.1)
+    nio4r (2.5.8)
+    public_suffix (4.0.6)
+    puma (5.6.4)
+      nio4r (~> 2.0)
+    rack (2.2.3)
+    rake (13.0.6)
+    ruby2_keywords (0.0.5)
+    tilt (2.0.10)
+    unf (0.1.4)
+      unf_ext
+    unf_ext (0.0.8.1)
+
+PLATFORMS
+  x86_64-linux
+
+DEPENDENCIES
+  dry-struct
+  erubi
+  hanami-api
+  http
+  json
+  puma
+  tilt
+
+BUNDLED WITH
+   2.3.7
