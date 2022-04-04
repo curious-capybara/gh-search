@@ -7,6 +7,10 @@ body {
   max-width: 1100px;
   margin: auto;
 }
+
+.repo-tile {
+  margin-bottom: 1em;
+}
 </style>
 </head>
 
@@ -34,26 +38,22 @@ body {
   <% if search_results %>
     Count: <%= search_results.total_count %>
 
-    <div id="data">
-      <table class="packages-table table table-striped table-hover">
-        <thead>
-          <tr>
-            <th class="main-column">Repo</th>
-          </tr>
-        </thead>
-        <tbody>
-          <% search_results.repos.each do |repo| %>
-          <tr>
-          <td>
-            <h4>
+    <div id="data" style="margin-top: 3em">
+      <% search_results.repos.each do |repo| %>
+        <div class="tile repo-tile">
+          <div class="tile-icon">
+            <figure class="avatar">
+              <img src="<%= repo.avatar %>" />
+            </figure>
+          </div>
+          <div class="tile-content">
+            <p class="tile-title text-bold">
               <a href="<%= repo.url %>" target="_blank"><%= repo.name %></a>
-            </h4>
-            <p><%= repo.description %></p>
-          </td>
-          </tr>
-          <% end %>
-        </tbody>
-      </table>
+            </p>
+            <p class="tile-subtitle"><%= repo.description %></p>
+          </div>
+        </div>
+      <% end %>
     </div>
   <% else %>
   <div class="hero hero-lg bg-gray">

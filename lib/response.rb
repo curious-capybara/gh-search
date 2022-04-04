@@ -11,6 +11,7 @@ class SearchResults < Dry::Struct
     attribute :name, Types::String
     attribute :url, Types::String
     attribute :description, Types::Optional::String
+    attribute :avatar, Types::Optional::String
   end
 
   def self.from_json(json, query)
@@ -21,7 +22,8 @@ class SearchResults < Dry::Struct
         {
           name: item["name"],
           url: item["html_url"],
-          description: item["description"]
+          description: item["description"],
+          avatar: item.dig("owner", "avatar_url")
         }
       end
     )
