@@ -27,6 +27,7 @@ body {
           hx-target="#content"
           hx-select="#content"
           hx-swap="outerHTML"
+          hx-indicator=".htmx-indicator"
           value="<%= search_results&.query %>"
           hx-push-url="true">
 
@@ -34,19 +35,19 @@ body {
     </div>
   </div>
 
-  <div id="content">
-  <% if search_results %>
-    Count: <%= search_results.total_count %>
+  <div>&nbsp;<i class="form-icon loading htmx-indicator"></i></div>
 
+  <div id="content">
+  <% if search_results && search_results.total_count > 0 %>
     <div class="columns" hx-boost="true">
       <div class="column col-6">
         <% if search_results.pagination.prev %>
-        <a href="/?<%= search_results.pagination.prev %>">&laquo; Previous page</a>
+        <a href="/?<%= search_results.pagination.prev %>" hx-indicator=".htmx-indicator">&laquo; Previous page</a>
         <% end %>
       </div>
       <div class="column col-6 text-right">
         <% if search_results.pagination.next %>
-        <a href="/?<%= search_results.pagination.next %>">Next page &raquo;</a>
+        <a href="/?<%= search_results.pagination.next %>" hx-indicator=".htmx-indicator">Next page &raquo;</a>
         <% end %>
       </div>
     </div>
@@ -68,12 +69,20 @@ body {
         </div>
       <% end %>
     </div>
-  <% else %>
-  <div class="hero hero-lg bg-gray">
-    <div class="hero-body">
-      <p>Type something in the search box to see the results.</p>
+  <% elsif search_results %>
+    <div class="empty">
+      <div class="empty-icon">
+        <i class="icon icon-stop"></i>
+      </div>
+      <p class="empty-title h5">No results found</p>
     </div>
-  </div>   
+  <% else %>
+    <div class="empty">
+      <div class="empty-icon">
+        <i class="icon icon-stop"></i>
+      </div>
+      <p class="empty-title h5">Type something in the search bar</p>
+    </div>
   <% end %>
   </div>
 </div>
