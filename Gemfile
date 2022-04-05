@@ -4,7 +4,7 @@ source "https://rubygems.org"
 
 gem "hanami-api"
 gem "puma"
-gem "http"
+gem "octokit"
 gem "erubi"
 gem "tilt"
 gem "json"

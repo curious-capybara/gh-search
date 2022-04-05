@@ -14,16 +14,16 @@ class SearchResults < Dry::Struct
     attribute :avatar, Types::Optional::String
   end
 
-  def self.from_json(json, query)
+  def self.from_json(json, query:)
     self.new(
       query: query,
-      total_count: json["total_count"],
-      repos: json["items"].map do |item|
+      total_count: json[:total_count],
+      repos: json[:items].map do |item|
         {
-          name: item["name"],
-          url: item["html_url"],
-          description: item["description"],
-          avatar: item.dig("owner", "avatar_url")
+          name: item[:name],
+          url: item[:html_url],
+          description: item[:description],
+          avatar: item[:owner][:avatar_url]
         }
       end
     )
