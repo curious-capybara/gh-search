@@ -1,6 +1,4 @@
 require "hanami/api"
-require "tilt"
-require "erubi/capture_end"
 require "template"
 require "github_client"
 

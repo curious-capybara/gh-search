@@ -4,6 +4,9 @@ GEM
     addressable (2.8.0)
       public_suffix (>= 2.0.2, < 5.0)
     concurrent-ruby (1.1.10)
+    crack (0.4.5)
+      rexml
+    diff-lcs (1.5.0)
     dry-configurable (0.14.0)
       concurrent-ruby (~> 1.0)
       dry-core (~> 0.6)
@@ -57,6 +60,7 @@ GEM
       mustermann-contrib (~> 1.0)
       rack (~> 2.0)
     hansi (0.2.0)
+    hashdiff (1.0.1)
     ice_nine (0.11.2)
     json (2.6.1)
     multipart-post (2.1.1)
@@ -73,11 +77,30 @@ GEM
     puma (5.6.4)
       nio4r (~> 2.0)
     rack (2.2.3)
+    rexml (3.2.5)
+    rspec (3.11.0)
+      rspec-core (~> 3.11.0)
+      rspec-expectations (~> 3.11.0)
+      rspec-mocks (~> 3.11.0)
+    rspec-core (3.11.0)
+      rspec-support (~> 3.11.0)
+    rspec-expectations (3.11.0)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.11.0)
+    rspec-mocks (3.11.1)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.11.0)
+    rspec-support (3.11.0)
     ruby2_keywords (0.0.5)
     sawyer (0.8.2)
       addressable (>= 2.3.5)
       faraday (> 0.8, < 2.0)
     tilt (2.0.10)
+    vcr (6.1.0)
+    webmock (3.14.0)
+      addressable (>= 2.8.0)
+      crack (>= 0.3.2)
+      hashdiff (>= 0.4.0, < 2.0.0)
 
 PLATFORMS
   x86_64-linux
@@ -89,7 +112,10 @@ DEPENDENCIES
   json
   octokit
   puma
+  rspec
   tilt
+  vcr
+  webmock
 
 BUNDLED WITH
    2.3.7

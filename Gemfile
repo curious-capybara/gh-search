@@ -9,3 +9,9 @@ gem "erubi"
 gem "tilt"
 gem "json"
 gem "dry-struct"
+
+group :test do
+  gem "rspec"
+  gem "vcr"
+  gem "webmock"
+end
