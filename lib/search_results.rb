@@ -13,8 +13,14 @@ class SearchResults < Dry::Struct
     attribute :description, Types::Optional::String
     attribute :avatar, Types::Optional::String
   end
+  attribute :pagination do
+    attribute :next, Types::Optional::String
+    attribute :prev, Types::Optional::String
+    attribute :last, Types::Optional::String
+    attribute :first, Types::Optional::String
+  end
 
-  def self.from_json(json, query:)
+  def self.from_json(json, query:, pagination:)
     self.new(
       query: query,
       total_count: json[:total_count],
@@ -25,7 +31,8 @@ class SearchResults < Dry::Struct
           description: item[:description],
           avatar: item[:owner][:avatar_url]
         }
-      end
+      end,
+      pagination: pagination
     )
   end
 end

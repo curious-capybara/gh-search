@@ -38,6 +38,19 @@ body {
   <% if search_results %>
     Count: <%= search_results.total_count %>
 
+    <div class="columns" hx-boost="true">
+      <div class="column col-6">
+        <% if search_results.pagination.prev %>
+        <a href="/?<%= search_results.pagination.prev %>">&laquo; Previous page</a>
+        <% end %>
+      </div>
+      <div class="column col-6 text-right">
+        <% if search_results.pagination.next %>
+        <a href="/?<%= search_results.pagination.next %>">Next page &raquo;</a>
+        <% end %>
+      </div>
+    </div>
+
     <div id="data" style="margin-top: 3em">
       <% search_results.repos.each do |repo| %>
         <div class="tile repo-tile">
